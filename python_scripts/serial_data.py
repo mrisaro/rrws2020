@@ -8,11 +8,11 @@ import os.path
 ser = serial.Serial('/dev/ttyACM0', 9600)
 var = [b'T',b'H',b'L',b'U']
 
-min = 0.05
-hs  = 2
+min = 0.5
+hs  = 0.5
 
 dt  = min*60
-N   = hs*int(60/min)
+N   = int(hs*int(60/min))
 temp  = []
 humid = []
 light = []
@@ -26,15 +26,15 @@ def makeFig(): #Create a function that makes our desired plot
 #    plt.ylim(80,90)                                 #Set y min and max values
     plt.title('Live streaming sensor data')      	#Plot the title
 #    plt.grid(linestlye='--')                  		#Turn the grid on
-    plt.ylabel('Temp (C)')                            #Set ylabels
+    plt.ylabel('Temp (C)')                         #Set ylabels
     plt.plot(temp, 'ro-', label='Degrees C')       #plot the temperature
-    plt.legend(loc='upper left')                    #plot the legend
-    plt2=plt.twinx()                                #Create a second y axis
-#    plt.ylim(93450,93525)                           #Set limits of second y axis- adjust to readings you are getting
-    plt2.plot(humid, 'b^-', label='Humidity (%)') #plot pressure data
+    plt.legend(loc='upper left')                   #plot the legend
+    plt2=plt.twinx()                               #Create a second y axis
+#    plt.ylim(93450,93525)                         #Set limits of second y axis- adjust to readings you are getting
+    plt2.plot(humid, 'b^-', label='Humidity (%)')  #plot humidity data
     plt2.set_ylabel('Humidity')                    #label second y axis
-    plt2.ticklabel_format(useOffset=False)           #Force matplotlib to NOT autoscale y axis
-    plt2.legend(loc='upper right')                  #plot the legend
+    plt2.ticklabel_format(useOffset=False)         #Force matplotlib to NOT autoscale y axis
+    plt2.legend(loc='upper right')                 #plot the legend
 ##%
 
 def makeFig2():
@@ -91,7 +91,7 @@ while os.path.isfile(file_test):
 	file_test = file_name + '.csv'
 	ii=ii+1
 
-file_name = file_test
+file_name = 'data/'+file_test
 
 np.savetxt(file_name, A, header="time,T,H,L,t", fmt="%s",
 					delimiter=',', comments='')

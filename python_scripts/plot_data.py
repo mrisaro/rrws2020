@@ -7,8 +7,9 @@ from plotly.subplots import make_subplots
 
 
 #file = 'data_THL.csv'
-file_name = 'data_THL_abr-06-2020'
-file = file_name + '.csv'
+path = 'data/'
+file_name = 'data_THL_abr-10-2020'
+file = path+file_name + '.csv'
 
 df = pd.read_csv(file)
 
@@ -28,7 +29,7 @@ fig.update_layout(
 )
 fig.update_layout(width = 1600, height = 900)
 fig.show()
-file_tem = file_name + '_tem.jpeg'
+file_tem = 'data_plot/'+file_name + '_tem.jpeg'
 fig.write_image(file_tem)
 
 fig = go.Figure()
@@ -43,7 +44,7 @@ fig.update_layout(
 )
 fig.update_layout(width = 1600, height = 900)
 fig.show()
-file_hum = file_name + '_hum.jpeg'
+file_hum = 'data_plot/'+ file_name + '_hum.jpeg'
 fig.write_image(file_hum)
 
 fig = go.Figure()
@@ -58,7 +59,7 @@ fig.update_layout(
 )
 fig.update_layout(width = 1600, height = 900)
 fig.show()
-file_luz = file_name + '_luz.jpeg'
+file_luz = 'data_plot/' + file_name + '_luz.jpeg'
 fig.write_image(file_luz)
 
 # Whole subplots
@@ -81,5 +82,5 @@ fig.append_trace(go.Scatter(x=df.index, y=df['L'], name = "Luz"
 
 fig.update_layout(height=900, width=1600, title_text="Stacked subplots")
 fig.show()
-file_stack = file_name + '_stack.jpeg'
+file_stack = 'data_plot/' + file_name + '_stack.jpeg'
 fig.write_image(file_stack)
