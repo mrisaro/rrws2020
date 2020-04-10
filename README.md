@@ -25,3 +25,5 @@ cd /usr/share/fritzing/
 sudo git clone https://github.com/fritzing/fritzing-parts.git
 
 sudo mv fritzing-parts/ parts
+
+type "Fritzing" in terminal
