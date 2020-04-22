@@ -1,4 +1,4 @@
-weather_station is a collaboration between PhD Daniela B. Risaro and PhD Matias A. Risaro
+## RRWS2020 is a collaboration between PhD Daniela B. Risaro and PhD Matias A. Risaro
 
 10/04/2020.
 
